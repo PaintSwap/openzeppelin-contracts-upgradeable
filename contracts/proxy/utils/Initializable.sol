@@ -221,7 +221,7 @@ abstract contract Initializable {
      */
     // solhint-disable-next-line var-name-mixedcase
     function _getInitializableStorage() private pure returns (InitializableStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := INITIALIZABLE_STORAGE
         }
     }
