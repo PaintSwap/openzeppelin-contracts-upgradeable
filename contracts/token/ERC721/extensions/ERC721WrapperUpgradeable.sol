@@ -25,6 +25,7 @@ abstract contract ERC721WrapperUpgradeable is Initializable, ERC721Upgradeable, 
     bytes32 private constant ERC721WrapperStorageLocation = 0xa27ade666fc2e768f0cfbad659dfd6a7039cae52f9274d2ab808f70dce364400;
 
     function _getERC721WrapperStorage() private pure returns (ERC721WrapperStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC721WrapperStorageLocation
         }

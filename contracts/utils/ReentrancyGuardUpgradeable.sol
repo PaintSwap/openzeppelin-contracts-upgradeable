@@ -44,6 +44,7 @@ abstract contract ReentrancyGuardUpgradeable is Initializable {
     bytes32 private constant ReentrancyGuardStorageLocation = 0x9b779b17422d0df92223018b32b4d1fa46e071723d6817e2486d003becc55f00;
 
     function _getReentrancyGuardStorage() private pure returns (ReentrancyGuardStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ReentrancyGuardStorageLocation
         }

@@ -27,6 +27,7 @@ abstract contract ERC20NoReturnMockUpgradeable is Initializable, ERC20Upgradeabl
 
     function approve(address spender, uint256 amount) public override returns (bool) {
         super.approve(spender, amount);
+        /// @solidity memory-safe-assembly
         assembly {
             return(0, 0)
         }

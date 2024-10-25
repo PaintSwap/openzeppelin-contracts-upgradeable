@@ -25,6 +25,7 @@ abstract contract PausableUpgradeable is Initializable, ContextUpgradeable {
     bytes32 private constant PausableStorageLocation = 0xcd5ed15c6e187e77e9aee88184c21f4f2182ab5827cb3b7e07fbedcd63f03300;
 
     function _getPausableStorage() private pure returns (PausableStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := PausableStorageLocation
         }

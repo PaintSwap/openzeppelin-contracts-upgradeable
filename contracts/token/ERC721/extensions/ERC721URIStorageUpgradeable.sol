@@ -29,6 +29,7 @@ abstract contract ERC721URIStorageUpgradeable is Initializable, IERC4906, ERC721
     bytes32 private constant ERC721URIStorageStorageLocation = 0x0542a41881ee128a365a727b282c86fa859579490b9bb45aab8503648c8e7900;
 
     function _getERC721URIStorageStorage() private pure returns (ERC721URIStorageStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC721URIStorageStorageLocation
         }

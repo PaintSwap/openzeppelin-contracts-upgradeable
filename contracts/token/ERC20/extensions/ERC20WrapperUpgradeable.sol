@@ -26,6 +26,7 @@ abstract contract ERC20WrapperUpgradeable is Initializable, ERC20Upgradeable {
     bytes32 private constant ERC20WrapperStorageLocation = 0x3b5a617e0d4c238430871a64fe18212794b0c8d05a4eac064a8c9039fb5e0700;
 
     function _getERC20WrapperStorage() private pure returns (ERC20WrapperStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC20WrapperStorageLocation
         }

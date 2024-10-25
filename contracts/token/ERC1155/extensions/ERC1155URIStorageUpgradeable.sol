@@ -27,6 +27,7 @@ abstract contract ERC1155URIStorageUpgradeable is Initializable, ERC1155Upgradea
     bytes32 private constant ERC1155URIStorageStorageLocation = 0x89fc852226e759c7c636cf34d732f0198fc56a54876b2374a52beb7b0c558600;
 
     function _getERC1155URIStorageStorage() private pure returns (ERC1155URIStorageStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC1155URIStorageStorageLocation
         }

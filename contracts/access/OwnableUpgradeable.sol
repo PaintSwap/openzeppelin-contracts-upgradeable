@@ -28,6 +28,7 @@ abstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {
     bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;
 
     function _getOwnableStorage() private pure returns (OwnableStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := OwnableStorageLocation
         }

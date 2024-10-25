@@ -42,6 +42,7 @@ abstract contract ERC721Upgradeable is Initializable, ContextUpgradeable, ERC165
     bytes32 private constant ERC721StorageLocation = 0x80bb2b638cc20bc4d0a60d66940f3ab4a00c1d7b313497ca82fb0b4ab0079300;
 
     function _getERC721Storage() private pure returns (ERC721Storage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC721StorageLocation
         }

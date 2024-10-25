@@ -30,6 +30,7 @@ abstract contract ERC1155SupplyUpgradeable is Initializable, ERC1155Upgradeable 
     bytes32 private constant ERC1155SupplyStorageLocation = 0x4a593662ee04d27b6a00ebb31be7fe0c102c2ade82a7c5d764f2df05dc4e2800;
 
     function _getERC1155SupplyStorage() private pure returns (ERC1155SupplyStorage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC1155SupplyStorageLocation
         }

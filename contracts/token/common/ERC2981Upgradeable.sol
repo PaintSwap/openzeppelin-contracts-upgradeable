@@ -37,6 +37,7 @@ abstract contract ERC2981Upgradeable is Initializable, IERC2981, ERC165Upgradeab
     bytes32 private constant ERC2981StorageLocation = 0xdaedc9ab023613a7caf35e703657e986ccfad7e3eb0af93a2853f8d65dd86b00;
 
     function _getERC2981Storage() private pure returns (ERC2981Storage storage $) {
+        /// @solidity memory-safe-assembly
         assembly {
             $.slot := ERC2981StorageLocation
         }
