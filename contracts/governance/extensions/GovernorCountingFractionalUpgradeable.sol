@@ -56,7 +56,7 @@ abstract contract GovernorCountingFractionalUpgradeable is Initializable, Govern
     bytes32 private constant GovernorCountingFractionalStorageLocation = 0xd073797d8f9d07d835a3fc13195afeafd2f137da609f97a44f7a3aa434170800;
 
     function _getGovernorCountingFractionalStorage() private pure returns (GovernorCountingFractionalStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorCountingFractionalStorageLocation
         }
     }

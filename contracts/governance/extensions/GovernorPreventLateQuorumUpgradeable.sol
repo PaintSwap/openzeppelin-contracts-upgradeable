@@ -28,7 +28,7 @@ abstract contract GovernorPreventLateQuorumUpgradeable is Initializable, Governo
     bytes32 private constant GovernorPreventLateQuorumStorageLocation = 0x042f525fd47e44d02e065dd7bb464f47b4f926fbd05b5e087891ebd756adf100;
 
     function _getGovernorPreventLateQuorumStorage() private pure returns (GovernorPreventLateQuorumStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorPreventLateQuorumStorageLocation
         }
     }

@@ -33,7 +33,7 @@ abstract contract GovernorStorageUpgradeable is Initializable, GovernorUpgradeab
     bytes32 private constant GovernorStorageStorageLocation = 0x7fd223d3380145bd26132714391e777c488a0df7ac2dd4b66419d8549fb3a600;
 
     function _getGovernorStorageStorage() private pure returns (GovernorStorageStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorStorageStorageLocation
         }
     }

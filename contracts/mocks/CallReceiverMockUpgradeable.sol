@@ -59,7 +59,7 @@ contract CallReceiverMockUpgradeable is Initializable {
     }
 
     function mockFunctionWritesStorage(bytes32 slot, bytes32 value) public returns (string memory) {
-        assembly {
+        assembly ("memory-safe") {
             sstore(slot, value)
         }
         return "0x1234";

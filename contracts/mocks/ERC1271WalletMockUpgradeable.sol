@@ -26,7 +26,7 @@ contract ERC1271MaliciousMockUpgradeable is Initializable, IERC1271 {
     function __ERC1271MaliciousMock_init_unchained() internal onlyInitializing {
     }
     function isValidSignature(bytes32, bytes memory) public pure returns (bytes4) {
-        assembly {
+        assembly ("memory-safe") {
             mstore(0, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)
             return(0, 32)
         }

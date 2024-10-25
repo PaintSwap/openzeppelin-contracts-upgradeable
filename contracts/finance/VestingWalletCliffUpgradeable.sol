@@ -24,7 +24,7 @@ abstract contract VestingWalletCliffUpgradeable is Initializable, VestingWalletU
     bytes32 private constant VestingWalletCliffStorageLocation = 0x0a0ceb66c7c9aef32c0bfc43d3108868a39e95e96162520745e462557492f100;
 
     function _getVestingWalletCliffStorage() private pure returns (VestingWalletCliffStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := VestingWalletCliffStorageLocation
         }
     }

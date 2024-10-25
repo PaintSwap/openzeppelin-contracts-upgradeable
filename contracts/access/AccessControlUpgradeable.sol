@@ -65,7 +65,7 @@ abstract contract AccessControlUpgradeable is Initializable, ContextUpgradeable,
     bytes32 private constant AccessControlStorageLocation = 0x02dd7bc7dec4dceedda775e58dd541e08a116c6c53815c0bd028192f7b626800;
 
     function _getAccessControlStorage() private pure returns (AccessControlStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := AccessControlStorageLocation
         }
     }

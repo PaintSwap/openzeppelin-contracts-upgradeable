@@ -44,7 +44,7 @@ contract VestingWalletUpgradeable is Initializable, ContextUpgradeable, OwnableU
     bytes32 private constant VestingWalletStorageLocation = 0xa1eac494560f7591e4da38ed031587f09556afdfc4399dd2e205b935fdfa3900;
 
     function _getVestingWalletStorage() private pure returns (VestingWalletStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := VestingWalletStorageLocation
         }
     }

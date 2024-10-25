@@ -21,7 +21,7 @@ abstract contract NoncesUpgradeable is Initializable {
     bytes32 private constant NoncesStorageLocation = 0x5ab42ced628888259c08ac98db1eb0cf702fc1501344311d8b100cd1bfe4bb00;
 
     function _getNoncesStorage() private pure returns (NoncesStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := NoncesStorageLocation
         }
     }

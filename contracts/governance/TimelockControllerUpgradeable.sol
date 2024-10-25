@@ -38,7 +38,7 @@ contract TimelockControllerUpgradeable is Initializable, AccessControlUpgradeabl
     bytes32 private constant TimelockControllerStorageLocation = 0x9a37c2aa9d186a0969ff8a8267bf4e07e864c2f2768f5040949e28a624fb3600;
 
     function _getTimelockControllerStorage() private pure returns (TimelockControllerStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := TimelockControllerStorageLocation
         }
     }

@@ -30,7 +30,7 @@ abstract contract AccessManagedUpgradeable is Initializable, ContextUpgradeable,
     bytes32 private constant AccessManagedStorageLocation = 0xf3177357ab46d8af007ab3fdb9af81da189e1068fefdc0073dca88a2cab40a00;
 
     function _getAccessManagedStorage() private pure returns (AccessManagedStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := AccessManagedStorageLocation
         }
     }

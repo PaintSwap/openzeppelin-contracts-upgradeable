@@ -36,7 +36,7 @@ abstract contract ERC1155Upgradeable is Initializable, ContextUpgradeable, ERC16
     bytes32 private constant ERC1155StorageLocation = 0x88be536d5240c274a3b1d3a1be54482fd9caa294f08c62a7cde569f49a3c4500;
 
     function _getERC1155Storage() private pure returns (ERC1155Storage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := ERC1155StorageLocation
         }
     }

@@ -29,7 +29,7 @@ abstract contract ERC721EnumerableUpgradeable is Initializable, ERC721Upgradeabl
     bytes32 private constant ERC721EnumerableStorageLocation = 0x645e039705490088daad89bae25049a34f4a9072d398537b1ab2425f24cbed00;
 
     function _getERC721EnumerableStorage() private pure returns (ERC721EnumerableStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := ERC721EnumerableStorageLocation
         }
     }

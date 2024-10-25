@@ -64,7 +64,7 @@ abstract contract GovernorUpgradeable is Initializable, ContextUpgradeable, ERC1
     bytes32 private constant GovernorStorageLocation = 0x7c712897014dbe49c045ef1299aa2d5f9e67e48eea4403efa21f1e0f3ac0cb00;
 
     function _getGovernorStorage() private pure returns (GovernorStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorStorageLocation
         }
     }

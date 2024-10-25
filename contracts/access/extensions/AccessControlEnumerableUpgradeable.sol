@@ -23,7 +23,7 @@ abstract contract AccessControlEnumerableUpgradeable is Initializable, IAccessCo
     bytes32 private constant AccessControlEnumerableStorageLocation = 0xc1f6fe24621ce81ec5827caf0253cadb74709b061630e6b55e82371705932000;
 
     function _getAccessControlEnumerableStorage() private pure returns (AccessControlEnumerableStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := AccessControlEnumerableStorageLocation
         }
     }

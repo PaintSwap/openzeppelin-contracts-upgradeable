@@ -42,7 +42,7 @@ abstract contract ERC721ConsecutiveUpgradeable is Initializable, IERC2309, ERC72
     bytes32 private constant ERC721ConsecutiveStorageLocation = 0x24de1071a22e1e6f709b09cc0dadb696f919b85b456665cd36195df4bc89ff00;
 
     function _getERC721ConsecutiveStorage() private pure returns (ERC721ConsecutiveStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := ERC721ConsecutiveStorageLocation
         }
     }

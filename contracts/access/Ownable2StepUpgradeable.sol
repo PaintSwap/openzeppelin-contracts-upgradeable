@@ -33,7 +33,7 @@ abstract contract Ownable2StepUpgradeable is Initializable, OwnableUpgradeable {
     bytes32 private constant Ownable2StepStorageLocation = 0x237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00;
 
     function _getOwnable2StepStorage() private pure returns (Ownable2StepStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := Ownable2StepStorageLocation
         }
     }

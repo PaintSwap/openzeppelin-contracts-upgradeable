@@ -24,7 +24,7 @@ abstract contract GovernorVotesQuorumFractionUpgradeable is Initializable, Gover
     bytes32 private constant GovernorVotesQuorumFractionStorageLocation = 0xe770710421fd2cad75ad828c61aa98f2d77d423a440b67872d0f65554148e000;
 
     function _getGovernorVotesQuorumFractionStorage() private pure returns (GovernorVotesQuorumFractionStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorVotesQuorumFractionStorageLocation
         }
     }

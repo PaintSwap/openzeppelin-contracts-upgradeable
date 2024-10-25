@@ -19,7 +19,7 @@ abstract contract ERC20CappedUpgradeable is Initializable, ERC20Upgradeable {
     bytes32 private constant ERC20CappedStorageLocation = 0x0f070392f17d5f958cc1ac31867dabecfc5c9758b4a419a200803226d7155d00;
 
     function _getERC20CappedStorage() private pure returns (ERC20CappedStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := ERC20CappedStorageLocation
         }
     }

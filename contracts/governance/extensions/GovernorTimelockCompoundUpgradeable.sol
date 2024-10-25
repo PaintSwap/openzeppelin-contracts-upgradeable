@@ -30,7 +30,7 @@ abstract contract GovernorTimelockCompoundUpgradeable is Initializable, Governor
     bytes32 private constant GovernorTimelockCompoundStorageLocation = 0x7d1501d734d0ca30b8d26751a7fae89646767b24afe11265192d56e5fe515b00;
 
     function _getGovernorTimelockCompoundStorage() private pure returns (GovernorTimelockCompoundStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorTimelockCompoundStorageLocation
         }
     }

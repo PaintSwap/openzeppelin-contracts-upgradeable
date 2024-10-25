@@ -49,7 +49,7 @@ abstract contract VotesUpgradeable is Initializable, ContextUpgradeable, EIP712U
     bytes32 private constant VotesStorageLocation = 0xe8b26c30fad74198956032a3533d903385d56dd795af560196f9c78d4af40d00;
 
     function _getVotesStorage() private pure returns (VotesStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := VotesStorageLocation
         }
     }

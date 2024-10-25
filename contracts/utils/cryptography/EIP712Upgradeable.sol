@@ -48,7 +48,7 @@ abstract contract EIP712Upgradeable is Initializable, IERC5267 {
     bytes32 private constant EIP712StorageLocation = 0xa16a46d94261c7517cc8ff89f61c0ce93598e3c849801011dee649a6a557d100;
 
     function _getEIP712Storage() private pure returns (EIP712Storage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := EIP712StorageLocation
         }
     }

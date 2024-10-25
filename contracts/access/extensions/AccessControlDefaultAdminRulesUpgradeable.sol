@@ -57,7 +57,7 @@ abstract contract AccessControlDefaultAdminRulesUpgradeable is Initializable, IA
     bytes32 private constant AccessControlDefaultAdminRulesStorageLocation = 0xeef3dac4538c82c8ace4063ab0acd2d15cdb5883aa1dff7c2673abb3d8698400;
 
     function _getAccessControlDefaultAdminRulesStorage() private pure returns (AccessControlDefaultAdminRulesStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := AccessControlDefaultAdminRulesStorageLocation
         }
     }

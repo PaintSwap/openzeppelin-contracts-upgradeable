@@ -35,7 +35,7 @@ abstract contract GovernorCountingSimpleUpgradeable is Initializable, GovernorUp
     bytes32 private constant GovernorCountingSimpleStorageLocation = 0xa1cefa0f43667ef127a258e673c94202a79b656e62899531c4376d87a7f39800;
 
     function _getGovernorCountingSimpleStorage() private pure returns (GovernorCountingSimpleStorage storage $) {
-        assembly {
+        assembly ("memory-safe") {
             $.slot := GovernorCountingSimpleStorageLocation
         }
     }
